@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scan QR Code - Attendance</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        /* Additional styles for scanner */
+        #reader {
+            width: 100%;
+            max-width: 500px;
+            margin: 20px auto;
+            border: 3px solid #667eea;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        #reader video {
+            width: 100%;
+            height: auto;
+        }
+
+        .scanner-container {
+            text-align: center;
+            padding: 20px;
+        }
+
+        #result {
+            margin-top: 20px;
+            padding: 20px;
+            background: #f7fafc;
+            border-radius: 10px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="dashboard">
+            <!-- Header -->
+            <div class="dashboard-header">
+                <h1>📱 Scan QR Code</h1>
+                <a href="student.html" class="back-btn">← Back to Dashboard</a>
+            </div>
+
+            <!-- Alert Messages -->
+            <div id="alertContainer"></div>
+
+            <!-- Student Selection -->
+            <div class="section">
+                <h2>👤 Select Your Profile</h2>
+                <div class="form-group">
+                    <label for="studentSelect">Select Student:</label>
+                    <select id="studentSelect">
+                        <option value="">-- Select Your Name --</option>
+                    </select>
+                </div>
+            </div>
+
+            <hr style="margin: 40px 0; border: none; border-top: 2px solid #e2e8f0;">
+
+            <!-- Scanner Section -->
+            <div class="section scanner-container">
+                <h2>📷 Point Camera at QR Code</h2>
+                <p style="color: #718096; margin-bottom: 20px;">
+                    Position the QR code within the camera frame. Scanning will happen automatically.
+                </p>
+
+                <!-- QR Code Reader -->
+                <div id="reader"></div>
+
+                <!-- Result Display -->
+                <div id="result">
+                    <h3>Scan Result:</h3>
+                    <p id="resultText"></p>
+                </div>
+
+                <!-- Manual Entry Fallback -->
+                <div style="margin-top: 30px; padding: 20px; background: #f7fafc; border-radius: 10px;">
+                    <h3>📝 Camera not working? Enter manually:</h3>
+                    <div class="form-group">
+                        <label for="manualQR">Paste QR Data:</label>
+                        <textarea 
+                            id="manualQR" 
+                            rows="3" 
+                            placeholder='{"token":"...","classId":"1","createdAt":1234567890}'
+                            style="font-family: monospace; width: 100%; padding: 12px; border: 2px solid #e2e8f0; border-radius: 8px;"
+                        ></textarea>
+                    </div>
+                    <button onclick="processManualEntry()" class="btn btn-success">Submit Manual Entry</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Include html5-qrcode library -->
+    <script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
+    <script src="../js/scan.js"></script>
+</body>
+</html>

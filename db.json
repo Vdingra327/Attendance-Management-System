@@ -1,0 +1,37 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Admin User",
+      "role": "admin"
+    },
+    {
+      "id": 2,
+      "name": "John Smith",
+      "role": "teacher"
+    },
+    {
+      "id": 3,
+      "name": "Sarah Johnson",
+      "role": "teacher"
+    },
+    {
+      "id": 4,
+      "name": "Alice Brown",
+      "role": "student"
+    },
+    {
+      "id": 5,
+      "name": "Bob Wilson",
+      "role": "student"
+    },
+    {
+      "id": 6,
+      "name": "Charlie Davis",
+      "role": "student"
+    }
+  ],
+  "timetable": [],
+  "qr_sessions": [],
+  "attendance": []
+}

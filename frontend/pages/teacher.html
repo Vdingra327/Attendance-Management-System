@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Dashboard - Attendance System</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="dashboard">
+            <!-- Header -->
+            <div class="dashboard-header">
+                <h1>👨‍🏫 Teacher Dashboard</h1>
+                <a href="../index.html" class="back-btn">← Back to Home</a>
+            </div>
+
+            <!-- Alert Messages -->
+            <div id="alertContainer"></div>
+
+            <!-- Section 1: Select Teacher -->
+            <div class="section">
+                <h2>👤 Select Your Profile</h2>
+                <div class="form-group">
+                    <label for="teacherSelect">Select Teacher:</label>
+                    <select id="teacherSelect" onchange="loadTeacherClasses()">
+                        <option value="">-- Select Your Name --</option>
+                    </select>
+                </div>
+            </div>
+
+            <hr style="margin: 40px 0; border: none; border-top: 2px solid #e2e8f0;">
+
+            <!-- Section 2: My Classes -->
+            <div class="section" id="classesSection" style="display: none;">
+                <h2>📚 My Scheduled Classes</h2>
+                <div id="classesTable"></div>
+            </div>
+
+            <hr style="margin: 40px 0; border: none; border-top: 2px solid #e2e8f0;" id="qrDivider" style="display: none;">
+
+            <!-- Section 3: Generate QR Code -->
+            <div class="section" id="qrSection" style="display: none;">
+                <h2>📱 Generate QR Code for Class</h2>
+                <div class="form-group">
+                    <label for="classSelect">Select Class:</label>
+                    <select id="classSelect">
+                        <option value="">-- Select Class --</option>
+                    </select>
+                </div>
+                <button onclick="generateQR()" class="btn btn-success">Generate QR Code</button>
+
+                <!-- QR Code Display -->
+                <div id="qrDisplay" style="display: none;">
+                    <div class="qr-container">
+                        <h3>✅ QR Code Generated!</h3>
+                        <p>Students can scan this code to mark attendance</p>
+                        <img id="qrImage" src="" alt="QR Code">
+                        <div class="timer">
+                            <p>Valid for: <span id="countdown">30</span> seconds</p>
+                        </div>
+                        <p style="color: #e53e3e; font-weight: bold;">⚠️ QR code will expire automatically</p>
+                        <button onclick="generateQR()" class="btn btn-info">Generate New QR Code</button>
+                    </div>
+                </div>
+            </div>
+
+            <hr style="margin: 40px 0; border: none; border-top: 2px solid #e2e8f0;" id="attendanceDivider" style="display: none;">
+
+            <!-- Section 4: View Class Attendance -->
+            <div class="section" id="attendanceSection" style="display: none;">
+                <h2>✅ View Class Attendance</h2>
+                <div class="form-group">
+                    <label for="attendanceClassSelect">Select Class:</label>
+                    <select id="attendanceClassSelect" onchange="loadClassAttendance()">
+                        <option value="">-- Select Class --</option>
+                    </select>
+                </div>
+                <div id="attendanceDisplay"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/teacher.js"></script>
+</body>
+</html>

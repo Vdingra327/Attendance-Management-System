@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard - Attendance System</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="dashboard">
+            <!-- Header -->
+            <div class="dashboard-header">
+                <h1>👨‍🎓 Student Dashboard</h1>
+                <a href="../index.html" class="back-btn">← Back to Home</a>
+            </div>
+
+            <!-- Alert Messages -->
+            <div id="alertContainer"></div>
+
+            <!-- Section 1: Select Student -->
+            <div class="section">
+                <h2>👤 Select Your Profile</h2>
+                <div class="form-group">
+                    <label for="studentSelect">Select Student:</label>
+                    <select id="studentSelect" onchange="loadStudentData()">
+                        <option value="">-- Select Your Name --</option>
+                    </select>
+                </div>
+            </div>
+
+            <hr style="margin: 40px 0; border: none; border-top: 2px solid #e2e8f0;">
+
+            <!-- Section 2: Scan QR Code -->
+           <!-- Section 2: Scan QR Code -->
+<div class="section" id="scanSection" style="display: none;">
+    <h2>📱 Mark Attendance</h2>
+    <p style="color: #718096; margin-bottom: 20px;">
+        Scan QR code displayed by your teacher to mark your attendance.
+    </p>
+
+    <a href="scan.html" class="btn btn-success" style="display: inline-block; text-decoration: none; margin-bottom: 20px;">
+        📷 Open Camera Scanner
+    </a>
+
+    <div class="alert alert-info">
+        <strong>📱 Using Phone:</strong> Open this page on your phone and click "Open Camera Scanner" to use your phone's camera.
+    </div>
+
+    <!-- Test Mode still available -->
+    <div style="margin-top: 30px; padding: 20px; background: #f7fafc; border-radius: 8px;">
+        <h3>🧪 Test Mode (For Demo)</h3>
+        <p style="color: #718096; margin-bottom: 15px;">
+            Select a class and click "Simulate Scan" to test attendance marking:
+        </p>
+        <div class="form-group">
+            <label for="testClassSelect">Select Class to Test:</label>
+            <select id="testClassSelect">
+                <option value="">-- Select Class --</option>
+            </select>
+        </div>
+        <button onclick="simulateScan()" class="btn btn-info">🧪 Simulate QR Scan (Test Mode)</button>
+    </div>
+</div>
+
+            <hr style="margin: 40px 0; border: none; border-top: 2px solid #e2e8f0;" id="attendanceDivider" style="display: none;">
+
+            <!-- Section 3: View My Attendance -->
+            <div class="section" id="attendanceSection" style="display: none;">
+                <h2>📊 My Attendance Records</h2>
+                <button onclick="loadStudentAttendance()" class="btn btn-info">🔄 Refresh Attendance</button>
+                <div id="attendanceStats" style="margin-top: 20px;"></div>
+                <div id="attendanceTable" style="margin-top: 20px;"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/student.js"></script>
+</body>
+</html>
